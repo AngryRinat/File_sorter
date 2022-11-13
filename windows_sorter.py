@@ -3,7 +3,7 @@ import os, shutil, sys
 
 def moving_files(path):
 
-    folder_list = ["alina delphi", "unagro motive", "cilium beige"]
+    folder_list = ["alina", "anis liberica", "berne", "cleo", "dual", "elza", "finesse", "line", "monza", "nero", "olvi", "optima", "relax", "rizo", "snow", "time", "ungaro", "riona bella", "sola blanca"]
     list_of_files1 = []
     for root, dirs, files in os.walk(path):
         if root == path:
@@ -12,7 +12,8 @@ def moving_files(path):
 
     for file in list_of_files1:
         for set_name in folder_list:
-            if set_name in file and os.path.exists(f"{path}/{file}") :
+            _file = file.lower()
+            if set_name in _file and os.path.exists(f"{path}/{file}") :
              shutil.copyfile(f"{path}/{file}", f"{path}/{set_name}/{file}")
              if os.path.exists(f"{path}/{file}") and os.path.basename(f"{path}/{file}") != 'windows_sorter.exe':
                  os.remove(f"{path}/{file}")
@@ -32,5 +33,5 @@ if __name__ == '__main__':
     elif __file__:
         application_path = os.path.dirname(__file__)
 
-    moving_files('E:\Ринат\sorter')
+    moving_files(application_path)
 
